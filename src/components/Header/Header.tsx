@@ -8,7 +8,7 @@ export const Header = () => {
             <div className="container d-flex flex-column flex-sm-row align-items-center justify-content-between header-block">
                 <Link to="/" className="navbar-brand mb-2">
                     <img
-                        src="../../../public/images/logo.png"
+                        src="/images/logo.png"
                         alt="logo"
                         className="logo"
                     />
