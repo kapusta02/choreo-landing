@@ -7,11 +7,14 @@ export const Header = () => {
         <header className="header bg-dark py-2">
             <div className="container d-flex flex-column flex-sm-row align-items-center justify-content-between header-block">
                 <Link to="/" className="navbar-brand mb-2">
-                    <img
-                        src="/images/logo.png"
-                        alt="logo"
-                        className="logo"
-                    />
+                    <picture>
+                        <source srcSet="/images/logo.webp" type="image/webp" />
+                        <img
+                            src="/images/logo.png"
+                            alt="logo"
+                            className="logo"
+                        />
+                    </picture>
                 </Link>
 
                 <button

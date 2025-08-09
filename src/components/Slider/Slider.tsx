@@ -24,11 +24,14 @@ export const Slider = () => {
             <Carousel>
                 {images.map((image, index) => (
                     <Carousel.Item key={index}>
-                        <img
-                            className="d-block mx-auto slider-block"
-                            src={image.src}
-                            alt={image.alt}
-                        />
+                        <picture>
+                            <source srcSet={image.src} type="image/jpeg" />
+                            <img
+                                className="d-block mx-auto slider-block"
+                                src={image.src}
+                                alt={image.alt}
+                            />
+                        </picture>
                     </Carousel.Item>
                 ))}
             </Carousel>

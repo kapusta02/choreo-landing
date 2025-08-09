@@ -17,12 +17,15 @@ export const Footer = () => {
                             onClick={scrollTop}
                             style={{ display: 'inline-block' }}
                         >
-                            <img
-                                src="/images/logo.png"
-                                alt="logo"
-                                className="img-fluid"
-                                style={{ maxWidth: '200px', height: 'auto' }}
-                            />
+                            <picture>
+                                <source srcSet="/images/logo.webp" type="image/webp" />
+                                <img
+                                    src="/images/logo.png"
+                                    alt="logo"
+                                    className="img-fluid"
+                                    style={{ maxWidth: '200px', height: 'auto' }}
+                                />
+                            </picture>
                         </a>
                     </Col>
 

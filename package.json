@@ -9,8 +9,12 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "compress-images": "imagemin public/images/* --out-dir=public/images --plugin=pngquant --plugin=mozjpeg"
+    "compress-images": "imagemin public/images/* --out-dir=public/images --plugin=pngquant --plugin=mozjpeg",
+    "convert-webp": "imagemin public/images/* --out-dir=public/images --plugin=webp",
+    "convert-webp-slider": "imagemin public/images/slider/* --out-dir=public/images/slider --plugin=webp",
+
+    "optimize-images": "npm run compress-images && npm run convert-webp",
+    "deploy": "npm run optimize-images && vite build && gh-pages -d dist"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
@@ -35,6 +39,7 @@
     "imagemin-cli": "^8.0.0",
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-pngquant": "^10.0.0",
+    "imagemin-webp": "^8.0.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",
     "vite": "^5.2.10"
