@@ -1,0 +1,38 @@
+.notfound {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Montserrat", sans-serif;
+}
+
+.notfound {
+    max-width: 520px;
+    width: 100%;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.notfound .notfound-404 {
+    height: 190px;
+}
+
+.notfound .notfound-404 h1 {
+    font-size: 146px;
+    font-weight: 700;
+    margin: 0px;
+    color: black;
+}
+
+.notfound h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    color: black;
+}
+
+.notfound p {
+    color: #787878;
+    font-weight: 300;
+}

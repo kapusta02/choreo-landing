@@ -1,0 +1,11 @@
+.banner-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.banner-wrapper img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}

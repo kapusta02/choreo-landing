@@ -1,0 +1,33 @@
+.logo{
+    width: 267px;
+    height: 59px;
+    margin-bottom: 5px;
+}
+
+.header-bid{
+    color: white;
+}
+
+.btn-header {
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 576px) {
+    .container{
+        width: 380px;
+    }
+}
+
+@media (max-width: 400px) {
+    .logo {
+        width: 184px;
+        height: 47px;
+    }
+
+    .btn-header {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+}
