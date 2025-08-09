@@ -13,7 +13,7 @@
     "convert-webp": "imagemin public/images/* --out-dir=public/images --plugin=webp",
     "convert-webp-slider": "imagemin public/images/slider/* --out-dir=public/images/slider --plugin=webp",
 
-    "optimize-images": "npm run compress-images && npm run convert-webp",
+    "optimize-images": "npm run compress-images && npm run convert-webp && npm run convert-webp-slider",
     "deploy": "npm run optimize-images && vite build && gh-pages -d dist"
   },
   "dependencies": {
