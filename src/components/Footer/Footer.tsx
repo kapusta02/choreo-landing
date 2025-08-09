@@ -18,7 +18,7 @@ export const Footer = () => {
                             style={{ display: 'inline-block' }}
                         >
                             <img
-                                src="../../../public/images/logo.png"
+                                src="/images/logo.png"
                                 alt="logo"
                                 className="img-fluid"
                                 style={{ maxWidth: '200px', height: 'auto' }}
