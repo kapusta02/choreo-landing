@@ -6,7 +6,12 @@ export const Banner = () => {
             <div className="container">
                 <div className="banner-wrapper">
                     <picture>
-                        <source srcSet="/images/banner.webp" type="image/webp" />
+                        <source
+                            srcSet="/images/banner-mobile.webp"
+                            type="image/png"
+                            media="(max-width: 767px)"
+                        />
+                        <source srcSet="/images/banner.webp" type="image/webp"/>
                         <img
                             src="/images/banner.png"
                             alt="banner"
