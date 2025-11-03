@@ -11,7 +11,6 @@ export const Banner = () => {
                             type="image/png"
                             media="(max-width: 767px)"
                         />
-                        <source srcSet="/images/banner.webp" type="image/webp"/>
                         <img
                             src="/images/banner.png"
                             alt="banner"

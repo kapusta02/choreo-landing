@@ -1,74 +1,68 @@
-import { Link } from 'react-router-dom';
-import '../../App.css';
 import './Header.css';
+import {Link} from "react-router-dom";
+import {ROUTES} from "../../routes/routes.ts";
+import Logo from '../../../public/logo.png';
+import {Button, Modal} from "antd";
+import {useState} from "react";
 
-export const Header = () => {
+const Header = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const showModal = () => setIsModalOpen(true);
+    const handleCancel = () => setIsModalOpen(false);
+
     return (
-        <header className="header bg-dark py-2">
-            <div className="container d-flex flex-column flex-sm-row align-items-center justify-content-between header-block">
-                <Link to="/" className="navbar-brand mb-2">
-                    <picture>
-                        <source srcSet="/images/logo.webp" type="image/webp" />
-                        <img
-                            src="/images/logo.png"
-                            alt="logo"
-                            className="logo"
-                        />
-                    </picture>
+        <header className="header">
+            <div className="header-container" style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                padding: "10px 20px"
+            }}>
+                {/* Логотип */}
+                <Link to={ROUTES.HOME} style={{display: 'flex', alignItems: 'center'}}>
+                    <img
+                        src={Logo}
+                        alt="choreographers.kz"
+                        style={{maxHeight: 70, marginRight: 8}}
+                        className="logo"
+                    />
                 </Link>
 
-                <button
-                    type="button"
-                    className="btn btn-primary btn-header"
-                    data-bs-toggle="modal"
-                    data-bs-target="#requestModal"
+                {/* Кнопка открытия модалки */}
+                <Button
+                    type="primary"
+                    style={{fontWeight: 500}}
+                    onClick={showModal}
                 >
                     Оставить заявку
-                </button>
-            </div>
+                </Button>
 
-            <div
-                className="modal fade"
-                id="requestModal"
-                tabIndex={-1}
-                aria-labelledby="requestModalLabel"
-                aria-hidden="true"
-            >
-                <div className="modal-dialog modal-dialog-centered">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="requestModalLabel">Оставить заявку</h5>
-                            <button
-                                type="button"
-                                className="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Закрыть"
-                            ></button>
-                        </div>
-                        <div className="modal-body text-center">
-                            Для отправки заявки, пожалуйста, свяжитесь с нашим менеджером
-                            по{' '}
-                            <a
-                                href="https://wa.me/77478114235?text=Здравствуйте!%20Пишу%20с%20сайта%20choreographers.kz,%20хочу%20оставить%20заявку%20на%20конкурс%20в%20ОАЭ%20и%20узнать%20подробности"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                WhatsApp
-                            </a>
-                            .
-                        </div>
-                        <div className="modal-footer">
-                            <button
-                                type="button"
-                                className="btn btn-secondary"
-                                data-bs-dismiss="modal"
-                            >
-                                Закрыть
-                            </button>
-                        </div>
+                {/* Модалка */}
+                <Modal
+                    title="Оставить заявку"
+                    open={isModalOpen}
+                    onCancel={handleCancel}
+                    footer={[
+                        <Button key="cancel" onClick={handleCancel}>
+                            Закрыть
+                        </Button>,
+                    ]}
+                >
+                    <div style={{ textAlign: "center", lineHeight: "1.8" }}>
+                        Для отправки заявки, пожалуйста, свяжитесь с нашим менеджером по{" "}
+                        <a
+                            href="https://wa.me/77478114235?text=Здравствуйте!%20Пишу%20с%20сайта%20choreographers.kz,%20хочу%20оставить%20заявку%20и%20узнать%20подробности"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            WhatsApp
+                        </a>.
                     </div>
-                </div>
+                </Modal>
             </div>
         </header>
     );
 };
+
+export default Header;

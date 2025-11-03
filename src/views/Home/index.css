@@ -1,0 +1,39 @@
+.ant-card:hover .card-img {
+    transform: scale(1.05);
+}
+
+.ant-card:hover .title-contest {
+    color: #0c52d2;
+}
+
+.banner-blur {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(15px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.banner-main {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.banner-main:hover {
+    transform: scale(1.03);
+}
+
+.btn-header {
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}

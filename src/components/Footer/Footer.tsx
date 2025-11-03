@@ -1,80 +1,94 @@
-import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
-import {Col, Container, Row} from "react-bootstrap";
+import {Layout} from "antd";
+import {InstagramOutlined, WhatsAppOutlined} from "@ant-design/icons";
 import {Link} from "react-router-dom";
-import './Footer.css'
+import {ROUTES} from "../../routes/routes.ts";
+import Logo from "../../../public/logo-white.png";
+import {useWindowWidth} from "../../views/Home";
+import VkIcon from "../Icons/VkIcon.tsx";
 
-export const Footer = () => {
-    const scrollTop = () => {
-        window.scrollTo({top: 0, behavior: 'smooth'});
-    }
+export const {Footer} = Layout;
+
+const AppFooter = () => {
+    const width = useWindowWidth();
+
     return (
-        <div className="bg-dark py-3">
-            <Container>
-                <Row className="align-items-center">
-                    <Col xs={12} md={6} className="text-center text-md-start">
-                        <a
-                            className="logo link"
-                            onClick={scrollTop}
-                            style={{ display: 'inline-block' }}
-                        >
-                            <picture>
-                                <source srcSet="/images/logo.webp" type="image/webp" />
-                                <img
-                                    src="/images/logo.png"
-                                    alt="logo"
-                                    className="img-fluid"
-                                    style={{ maxWidth: '200px', height: 'auto' }}
-                                />
-                            </picture>
-                        </a>
-                    </Col>
+        <Footer
+            style={{
+                gap: "12px",
+                background: "#001529",
+                color: "#fff",
+                padding: "16px 24px",
+            }}
+        >
+            <div style={{
+                maxWidth: "1200px",
+                margin: "0 auto",
+                display: "flex",
+                alignItems: "center",
+                gap: "12px",
+                justifyContent: width < 720 ? 'center' : "space-between",
+                flexWrap: "wrap"
+            }}>
+                <div>
+                    <Link to={ROUTES.HOME} style={{display: 'flex', alignItems: 'center'}}>
+                        <img
+                            src={Logo}
+                            alt="choreographers.kz"
+                            style={{maxHeight: width < 720 ? 40 : 60}}
+                        />
+                    </Link>
+                </div>
 
-                    <Col
-                        xs={12}
-                        md={6}
-                        className="d-flex flex-column flex-md-row justify-content-md-end align-items-center text-center text-md-start"
+                <div
+                    style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "12px",
+                        fontSize: "16px",
+                        color: "#fff",
+                        flexWrap: "wrap",
+                        justifyContent: "center",
+                    }}
+                >
+                    <a
+                        href="https://wa.me/77478114235 "
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{color: "white"}}
                     >
-                        <div
-                            style={{
-                                marginRight: '20px',
-                                color: 'white',
-                                display: 'flex',
-                                gap: '15px',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                marginBottom: '10px',
-                                marginTop: '10px'
-                            }}
-                        >
-                            <Link
-                                to="https://wa.me/77478114235"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="link"
-                            >
-                                <FaWhatsapp size={24} color="white" />
-                            </Link>
-                            <Link
-                                to="https://www.instagram.com/choreographers.kz"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="link"
-                            >
-                                <FaInstagram size={24} color="white" />
-                            </Link>
-                        </div>
+                        <WhatsAppOutlined style={{fontSize: 24}}/>
+                    </a>
 
-                        <div>
-                            <a
-                                href="mailto:choreographerkz@mail.ru"
-                                style={{ color: 'white', textDecoration: 'none' }}
-                            >
-                                choreographerkz@mail.ru
-                            </a>
-                        </div>
-                    </Col>
-                </Row>
-            </Container>
-        </div>
+                    <a
+                        href="https://www.instagram.com/choreographers.kz"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{color: "white"}}
+                    >
+                        <InstagramOutlined style={{fontSize: 24}}/>
+                    </a>
+
+                    <a
+                        href="https://vk.com/choreographerskz"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{color: "white"}}
+                    >
+                        <VkIcon style={{ fontSize: 24 }} />
+                    </a>
+
+                    <a
+                        href="mailto:choreographerkz@mail.ru"
+                        style={{color: "white", display: "flex", alignItems: "center", gap: "6px"}}
+                    >
+                        <span>choreographerkz@mail.ru</span>
+                    </a>
+
+                    <a href="tel:+77478114235" style={{color: "white"}}>+7 (747) 811-42-35 </a>
+                </div>
+            </div>
+        </Footer>
     );
-}
+};
+
+export default AppFooter;
